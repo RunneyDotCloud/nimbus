@@ -1672,6 +1672,7 @@ version = "0.1.0"
 dependencies = [
  "aws-config",
  "aws-sdk-s3",
+ "fs_extra",
  "lambda_http",
  "serde",
  "serde_json",
