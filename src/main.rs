@@ -6,5 +6,11 @@ use http_handler::function_handler;
 async fn main() -> Result<(), Error> {
     tracing::init_default_subscriber();
 
-    run(service_fn(function_handler)).await
+    let result = run(service_fn(function_handler)).await;
+
+    if let Err(e) = &result {
+        tracing::error!("Lambda runtime failed: {}", e);
+    }
+
+    result
 }
